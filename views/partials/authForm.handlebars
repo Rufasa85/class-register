@@ -1,0 +1,25 @@
+{{#if isSignup}}
+<form class="signupForm">
+    <h3>Signup</h3>
+    {{/if}}
+    {{#unless isSignup}}
+    <form class="loginForm">
+        <h3>Login</h3>
+        {{/unless}}
+        <div class="formControl">
+            <label for="">email:</label>
+            <input type="text" name="email">
+        </div>
+        {{#if isSignup}}
+        <div class="formControl">
+            <label for="">name:</label>
+            <input type="text" name="name" value={{defaultName}}>
+        </div>
+        {{/if}}
+        <div class="formControl">
+            <label for="">password:</label>
+            <input type="password" name="password">
+        </div>
+        <input type="hidden" name="type" value={{type}}>
+        <button>Submit</button>
+    </form>

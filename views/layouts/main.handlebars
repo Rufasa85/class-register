@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class register</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        {{#if loggedIn}}
+        <span>Welcome back {{name}}</span>
+        {{/if}}
+        <a href="/">
+            Home
+        </a>
+        {{#unless loggedIn}}
+        <a href="/teacherportal">Teacher Portal</a>
+        <a href="/studentportal">Student Portal</a>
+        {{/unless}}
+        {{#if isTeacher}}
+        <a href="/newclass">Add a Class</a>
+        {{/if}}
+        {{#if loggedIn}}
+        <a href="/logout">logout</a>
+        {{/if}}
+    </nav>
+        {{{body}}}
+</body>
+</html>

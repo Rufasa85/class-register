@@ -1,0 +1,9 @@
+<div class="classCard">
+        <h4>{{title}} by: {{Teacher.name}}</h4>
+        <h5>credits: {{credits}}</h5>
+        <p>{{description}}</p>
+        <h5>{{maxStudents}} spaces left!</h5>
+        {{#if myClass}}
+            <button data-id={{id}} class="deleteClassBtn">Delete Class</button>
+        {{/if}}
+    </div>

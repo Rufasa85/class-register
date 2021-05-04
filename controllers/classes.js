@@ -49,4 +49,26 @@ router.post("/",(req,res)=>{
     })
 })
 
+router.delete("/:id",(req,res)=>{
+    if(!req.session?.user?.isTeacher) {
+       return res.status(403).json({message:"Not allowed"})
+    }
+    Class.findByPk(req.params.id).then(classData=>{
+        if(!classData.TeacherId == req.session.user.id) {
+            return res.status(403).json({message:"Not allowed"})
+        }
+        Class.destroy({
+            where:{
+                id:req.params.id
+            }
+        }).then(delClass=>{
+            res.status(200).json({message:"deleted!"})
+        }).catch(err=>{
+            res.status(500).json({message:"error occured"})
+        })
+    }).catch(error=>{
+        res.status(500).json({message:"an error occured"})
+    })
+})
+
 module.exports = router;

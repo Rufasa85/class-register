@@ -8,19 +8,21 @@ router.get("/",(req,res)=>{
 })
 
 router.post("/", (req,res)=>{
+   console.log(req.body)
    Student.create({
         name:req.body.name,
         email:req.body.email,
         password:req.body.password,
-        isStudent:true
     }).then(newStu=>{
         req.session.user = {
-            name:foundUser.name,
-            id:foundUser.id,
-            email:foundUser.email
+            name:newStu.name,
+            id:newStu.id,
+            email:newStu.email,
+            isStudent:true
         }
         res.json(newStu)
     }).catch(err=>{
+        console.log(err)
         res.status(500).json({message:"something went wrong",err:err})
     })
     

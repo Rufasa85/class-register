@@ -14,9 +14,9 @@ router.post("/", (req,res)=>{
         password:req.body.password
     }).then(newTeach=>{
         req.session.user = {
-            name:foundUser.name,
-            id:foundUser.id,
-            email:foundUser.email,
+            name:newTeach.name,
+            id:newTeach.id,
+            email:newTeach.email,
             isTeacher:true
         }
         res.json(newTeach)
