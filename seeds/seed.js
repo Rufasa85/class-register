@@ -29,7 +29,9 @@ async function wrapper(){
         name:"Arra",
         password:"password",
         email:"arra@joe.com"
-    }])
+    }],{
+        individualHooks:true    
+    })
     await myClass.addStudent(1);
     await myClass.addStudent(2);
    process.exit(0);
